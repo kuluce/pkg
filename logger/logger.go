@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"path/filepath"
+	"runtime"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/glog"
@@ -28,7 +29,7 @@ func InitLog(name string) {
 	})
 
 	_logger.SetStdoutPrint(true)
-	_logger.SetFlags(44)
+	_logger.SetFlags(21)
 
 	// _logger.Info(context.Background(), "logger init success")
 	logger = _logger
@@ -53,81 +54,222 @@ func SetLevel(level string) {
 }
 
 func Debug(msg string) {
-	logger.Debug(context.Background(), msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Debug(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func Debugf(format string, args ...interface{}) {
-	logger.Debugf(context.Background(), format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Debugf(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func DebugWithCTX(ctx context.Context, msg string) {
-	logger.Debug(ctx, msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Debug(ctx, fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func DebugfWithCTX(ctx context.Context, format string, args ...interface{}) {
-	logger.Debugf(ctx, format, args...)
+
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Debugf(ctx, fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func Info(msg string) {
-	logger.Info(context.Background(), msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Info(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func Infof(format string, args ...interface{}) {
-	logger.Infof(context.Background(), format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Infof(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func InfoWithCTX(ctx context.Context, msg string) {
-	logger.Info(ctx, msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Info(ctx, fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func InfofWithCTX(ctx context.Context, format string, args ...interface{}) {
-	logger.Infof(ctx, format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Infof(ctx, fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func Warn(msg string) {
-	logger.Warning(context.Background(), msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Warning(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func Warnf(format string, args ...interface{}) {
-	logger.Warningf(context.Background(), format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Warningf(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func WarnWithCTX(ctx context.Context, msg string) {
-	logger.Warning(ctx, msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Warning(ctx, fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func WarnfWithCTX(ctx context.Context, format string, args ...interface{}) {
-	logger.Warningf(ctx, format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Warningf(ctx, fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func Error(msg string) {
-	logger.Error(context.Background(), msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Error(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func Errorf(format string, args ...interface{}) {
-	logger.Errorf(context.Background(), format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Errorf(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func ErrorWithCTX(ctx context.Context, msg string) {
-	logger.Error(ctx, msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Error(ctx, fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func ErrorfWithCTX(ctx context.Context, format string, args ...interface{}) {
-	logger.Errorf(ctx, format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Errorf(ctx, fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func Fatal(msg string) {
-	logger.Fatal(context.Background(), msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Fatal(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func Fatalf(format string, args ...interface{}) {
-	logger.Fatalf(context.Background(), format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Fatalf(context.Background(), fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
 
 func FatalWithCTX(ctx context.Context, msg string) {
-	logger.Fatal(ctx, msg)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Fatal(ctx, fmt.Sprintf("%s:%d: %s", file, line, msg))
 }
 
 func FatalfWithCTX(ctx context.Context, format string, args ...interface{}) {
-	logger.Fatalf(ctx, format, args...)
+	_, file, line, ok := runtime.Caller(1)
+	if !ok {
+		file = "???"
+		line = 0
+	}
+	_, file = filepath.Split(file)
+
+	logger.Fatalf(ctx, fmt.Sprintf("%s:%d: %s", file, line, format), args...)
 }
