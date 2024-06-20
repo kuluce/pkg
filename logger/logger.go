@@ -8,7 +8,7 @@ import (
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/glog"
-	"github.com/toolkits/file"
+	"github.com/kuluce/pkg/file"
 )
 
 var logger *glog.Logger
@@ -20,12 +20,16 @@ func InitLog(name string) {
 
 	_logger := glog.New()
 	_logger.SetConfigWithMap(g.Map{
-		"path":                logHome,
-		"level":               "all",
-		"stdout":              true,
-		"StStatus":            0,
-		"stdoutColorDisabled": false,
-		"file":                fileName,
+		"path":                 logHome,
+		"level":                "all",
+		"stdout":               true,
+		"StStatus":             0,
+		"stdoutColorDisabled":  false,
+		"file":                 fileName,
+		"rotateSize":           "100M",
+		"rotateBackupLimit":    2,
+		"rotateBackupExpire":   "7d",
+		"rotateBackupCompress": 9,
 	})
 
 	_logger.SetStdoutPrint(true)
