@@ -33,7 +33,7 @@ func InitLog(name string) {
 	})
 
 	_logger.SetStdoutPrint(true)
-	_logger.SetFlags(21)
+	_logger.SetFlags(glog.F_TIME_STD | glog.F_FILE_LONG)
 
 	// _logger.Info(context.Background(), "logger init success")
 	logger = _logger
